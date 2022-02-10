@@ -1,0 +1,7 @@
+extends layout
+
+block content
+  h1= title
+  script(src='/javascripts/puppeteerAction.js');
+  p Welcome to #{title}
+  button(onclick='launchPuppeteer()') LAUNCH
