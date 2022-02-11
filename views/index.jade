@@ -1,7 +1,16 @@
 extends layout
 
 block content
-  h1= title
-  script(src='/javascripts/puppeteerAction.js');
+  h1 = title
   p Welcome to #{title}
   button(onclick='launchPuppeteer()') LAUNCH
+  script.
+    var puppeteer = '!{puppeteer}';
+    async function launchPuppeteer () {
+      console.log('hits');
+      const browser = await puppeteer.launch();
+      const page = await browser.newPage();
+      await page.goto('https://www.geeksforgeeks.org/');
+      
+      await browser.close();
+    }
