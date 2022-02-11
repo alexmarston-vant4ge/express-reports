@@ -10,7 +10,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 app = express();
-require('./public').with(puppeteer);
+// require('./public').with(puppeteer);
 
 
 // view engine setup
@@ -22,6 +22,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(puppeteer);
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
